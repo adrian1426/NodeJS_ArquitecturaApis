@@ -18,6 +18,12 @@ class IdeaController {
     return res.send(idea);
   }
 
+  async create(req, res) {
+    const { body } = req;
+    const createdIdea = await _ideaService.create(body);
+    return res.status(201).send(createdIdea);
+  }
+
   async update(req, res) {
     const { body } = req;
     const { ideaId } = req.params;
