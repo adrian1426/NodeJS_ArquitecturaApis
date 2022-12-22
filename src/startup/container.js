@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { createContainer, asValue, asClass, asFunction } = require('awilix');
 
 // ?Config
@@ -10,7 +11,9 @@ const {
 } = require('../services');
 
 // ?controllers
-const { HomeController } = require('../controllers');
+const {
+  HomeController, CommentController, IdeaController, UserController
+} = require('../controllers');
 
 // ?routes
 const { HomeRoutes } = require('../routes/index.routes');
@@ -34,7 +37,10 @@ container
     UserService: asClass(UserService).singleton()
   })
   .register({
-    HomeController: asClass(HomeController.bind(HomeController)).singleton()
+    HomeController: asClass(HomeController.bind(HomeController)).singleton(),
+    CommentController: asClass(CommentController.bind(CommentController)).singleton(),
+    IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
+    UserController: asClass(UserController.bind(UserController)).singleton()
   })
   .register({
     HomeRoutes: asFunction(HomeRoutes).singleton()
