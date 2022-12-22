@@ -1,6 +1,6 @@
 const BaseRepository = require('./base.repository');
 
-const _idea = null;
+let _idea = null;
 
 class IdeaRepository extends BaseRepository {
   // ?Idea es un model registrado en Container

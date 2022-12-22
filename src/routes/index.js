@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable new-cap */
 const express = require('express');
 const cors = require('cors');
@@ -9,9 +10,9 @@ require('express-async-errors');
 
 /*
   * Inyeccion de dependencias con Awilix:
-  ? HomeRoutes está declarado en startup/container.js
+  ? HomeRoutes,CommentRoutes,IdeaRoutes,UserRoutes está declarado en startup/container.js
 */
-function routes({ HomeRoutes }) {
+function routes({ HomeRoutes, UserRoutes, CommentRoutes, IdeaRoutes }) {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -22,6 +23,9 @@ function routes({ HomeRoutes }) {
     .use(compression());
 
   apiRoutes.use('/home', HomeRoutes);
+  apiRoutes.use('/user', UserRoutes);
+  apiRoutes.use('/comment', CommentRoutes);
+  apiRoutes.use('/idea', IdeaRoutes);
 
   router.use('/v1/api', apiRoutes);
 

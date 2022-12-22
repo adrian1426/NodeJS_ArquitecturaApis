@@ -55,8 +55,8 @@ container
   })
   .register({
     User: asValue(User),
-    Comment: asClass(Comment),
-    Idea: asClass(Idea)
+    Comment: asValue(Comment),
+    Idea: asValue(Idea)
   })
   .register({
     UserRepository: asClass(UserRepository).singleton(),
