@@ -4,5 +4,6 @@ const errorMiddleware = require('./error.middleware');
 module.exports = {
   notFoundMiddleware,
   errorMiddleware,
-  authMiddleware: require('./auth.middleware')
+  authMiddleware: require('./auth.middleware'),
+  ParseintMiddleware: require('./parseint.middleware')
 };
