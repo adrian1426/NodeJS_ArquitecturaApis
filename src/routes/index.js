@@ -12,7 +12,7 @@ require('express-async-errors');
   * Inyeccion de dependencias con Awilix:
   ? HomeRoutes,CommentRoutes,IdeaRoutes,UserRoutes está declarado en startup/container.js
 */
-function routes({ HomeRoutes, UserRoutes, CommentRoutes, IdeaRoutes }) {
+function routes({ HomeRoutes, UserRoutes, CommentRoutes, IdeaRoutes, AuthRoutes }) {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -26,6 +26,7 @@ function routes({ HomeRoutes, UserRoutes, CommentRoutes, IdeaRoutes }) {
   apiRoutes.use('/user', UserRoutes);
   apiRoutes.use('/comment', CommentRoutes);
   apiRoutes.use('/idea', IdeaRoutes);
+  apiRoutes.use('/auth', AuthRoutes);
 
   router.use('/v1/api', apiRoutes);
 
