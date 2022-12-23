@@ -1,4 +1,5 @@
 const { Router: routerExpress } = require('express');
+const { ParseintMiddleware } = require('../middlewares');
 
 /*
   * Inyeccion de dependencias con Awilix:
@@ -8,7 +9,7 @@ function idea({ IdeaController }) {
   const router = routerExpress();
 
   router.get('/:ideaId', IdeaController.get);
-  router.get('', IdeaController.getAll);
+  router.get('', ParseintMiddleware.parseIntMidd, IdeaController.getAll);
   router.get('/:userId/all', IdeaController.getUserIdeas);
   router.post('', IdeaController.create);
   router.patch('/:ideaId', IdeaController.update);

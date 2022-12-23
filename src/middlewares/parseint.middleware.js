@@ -1,5 +1,5 @@
 /* eslint-disable guard-for-in */
-function parseInt(req, res, next) {
+function parseIntMidd(req, res, next) {
   const queryStrings = req.query;
 
   for (const key in queryStrings) {
@@ -16,5 +16,5 @@ function parseInt(req, res, next) {
 }
 
 module.exports = {
-  parseInt
+  parseIntMidd
 };
