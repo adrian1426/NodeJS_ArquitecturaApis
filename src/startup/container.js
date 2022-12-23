@@ -7,7 +7,7 @@ const server = require('./index');
 
 // ?Services
 const {
-  HomeService, CommentService, IdeaService, UserService
+  HomeService, CommentService, IdeaService, UserService, AuthService
 } = require('../services');
 
 // ?controllers
@@ -34,7 +34,8 @@ container
     HomeService: asClass(HomeService).singleton(),
     CommentService: asClass(CommentService).singleton(),
     IdeaService: asClass(IdeaService).singleton(),
-    UserService: asClass(UserService).singleton()
+    UserService: asClass(UserService).singleton(),
+    AuthService: asClass(AuthService).singleton()
   })
   .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
