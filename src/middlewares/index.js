@@ -3,5 +3,6 @@ const errorMiddleware = require('./error.middleware');
 
 module.exports = {
   notFoundMiddleware,
-  errorMiddleware
+  errorMiddleware,
+  authMiddleware: require('./auth.middleware')
 };
