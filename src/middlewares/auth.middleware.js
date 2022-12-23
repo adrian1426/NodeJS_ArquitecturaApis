@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../config');
 
 function verifyToken(req, res, next) {
-  const token = req.headers['Authorization'];
+  const token = req.headers['authorization'];
 
   if (!token) {
     const error = new Error();
