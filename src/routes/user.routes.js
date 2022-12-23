@@ -1,5 +1,7 @@
+/* eslint-disable new-cap */
+/* eslint-disable max-len */
 const { Router: routerExpress } = require('express');
-const { ParseintMiddleware } = require('../middlewares');
+const { ParseintMiddleware, CacheMiddleware } = require('../middlewares');
 
 /*
   * Inyeccion de dependencias con Awilix:
@@ -9,7 +11,7 @@ function user({ UserController }) {
   const router = routerExpress();
 
   router.get('/:userId', UserController.get);
-  router.get('/', ParseintMiddleware.parseIntMidd, UserController.getAll);
+  router.get('/', [ParseintMiddleware.parseIntMidd, CacheMiddleware(60)], UserController.getAll);
   router.patch('/:userId', UserController.update);
   router.delete('/:userId', UserController.delete);
 
